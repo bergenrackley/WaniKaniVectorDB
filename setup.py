@@ -1,6 +1,7 @@
 import subprocess
 import sys
 import os
+from shutil import copyfile
 from pathlib import Path
 
 def run(cmd, **kwargs):
@@ -24,6 +25,13 @@ def main():
     print("📚 Installing requirements...")
     run([str(pip), "install", "-r", "requirements.txt"])
 
+    template = Path("config_template.json")
+    config = Path("config.json")
+    if template.exists() and not config.exists():
+        print("🛡️  Creating config.json from template...")
+        copyfile(template, config)
+        print("🔑  Please add your WaniKani API key to config.json")
+    
     print("✅ Setup complete! You can now run the app using: python run.py")
 
 if __name__ == "__main__":

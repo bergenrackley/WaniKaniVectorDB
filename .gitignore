@@ -3,3 +3,9 @@ __pycache__/
 *.pyc
 config.json
 .vscode/
+assignment_data.json
+new_vocab.json
+subject_data.json
+vocab_index.faiss
+vocab_metadata.json
+vocab_source.json
